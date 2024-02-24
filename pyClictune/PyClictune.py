@@ -87,7 +87,7 @@ class Clictune:
 
         values = dict(findall(r'<input type="submit" name="(.*)" class="button" value="(.*)" />', response))
 
-        _response_ = sess.post('https://www.clictune.com/auth/login', data=values  {'email': email, 'password': password, 'submit': 'Login'}).text
+        _response_ = sess.post('https://www.clictune.com/auth/login', data=values | {'email': email, 'password': password, 'submit': 'Login'}).text
 
         if email in _response_:
             self.loged = sess
