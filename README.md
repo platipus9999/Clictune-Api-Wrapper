@@ -5,6 +5,7 @@ Simple python package that uses the Clictune Api to do tasks.
 ## Install
 
 install package using pip :
+(I will do it later cuz lazy)
 ```
 pip install pyClictune
 ```
