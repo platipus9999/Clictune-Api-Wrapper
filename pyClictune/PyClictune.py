@@ -38,7 +38,7 @@ class Clictune:
             }
         
 
-    def register(self) -> tuple[str, str] | False:
+    def register(self) -> tuple[str, str] or False:
         sess = session()
         sess.get('https://www.clictune.com/auth/signup')
 
@@ -87,7 +87,7 @@ class Clictune:
 
         values = dict(findall(r'<input type="submit" name="(.*)" class="button" value="(.*)" />', response))
 
-        _response_ = sess.post('https://www.clictune.com/auth/login', data=values | {'email': email, 'password': password, 'submit': 'Login'}).text
+        _response_ = sess.post('https://www.clictune.com/auth/login', data=values  {'email': email, 'password': password, 'submit': 'Login'}).text
 
         if email in _response_:
             self.loged = sess
@@ -120,7 +120,7 @@ class Clictune:
         
         return True
     
-    def get_profit(self) -> float | False:
+    def get_profit(self) -> float or False:
         self.loged.headers.update({'referer': 'https://www.clictune.com/auth/dash'})
         try: return float(findall(r'Vous avez (.*) EUR dans votre compte.', self.is_login.get('https://www.clictune.com/auth/dash').text)[-1])
         except: return False
