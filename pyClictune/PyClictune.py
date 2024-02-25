@@ -122,7 +122,7 @@ class Clictune:
     
     def get_profit(self) -> float or False:
         self.loged.headers.update({'referer': 'https://www.clictune.com/auth/dash'})
-        try: return float(findall(r'Vous avez (.*) EUR dans votre compte.', self.is_login.get('https://www.clictune.com/auth/dash').text)[-1])
+        try: return float(findall(r'Vous avez (.*) EUR dans votre compte.', self.loged.get('https://www.clictune.com/auth/dash').text)[-1])
         except: return False
 
     def earn(self, links: list, proxy=None) -> bool:
